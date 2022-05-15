@@ -347,7 +347,7 @@ class CreateProductComment(graphene.Mutation):
 
         pc = ProductComment.objects.create(product_id=product_id, **kwargs)
 
-        return CreateProduct(
+        return CreateProductComment(
             product_comment = pc
         )
 

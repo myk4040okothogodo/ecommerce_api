@@ -152,6 +152,8 @@ DEFAULT_FILE_STORAGE = 'ecommerce_api.storage_backends.MediaStorage'
 GRAPHENE = {
     'SCHEMA': 'ecommerce_api.schema.schema',
     'MIDDLEWARE':  [
-        'ecommerce_api.middleware.CustomAuthMiddleware'
-        ]
+        'ecommerce_api.middleware.CustomAuthMiddleware',
+        'ecommerce_api.middleware.CustomPaginationMiddleware'
+        ],
+        'PAGE_SIZE': 1
         }

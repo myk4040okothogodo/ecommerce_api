@@ -248,13 +248,15 @@ class DeleteUserAddress(graphene.Mutation):
 
 
 class Query(graphene.ObjectType):
+    #users = graphene.List(UserType)
     users = graphene.Field(paginate(UserType), page=graphene.Int())
     image_uploads = graphene.Field(paginate(ImageUploadType), page=graphene.Int())
     me = graphene.Field(UserType)
 
     def resolve_users(self, info, **kwargs):
+        print(info.context.user)
         return User.objects.filter(**kwargs)
-
+        #return User.objects.all()
     def resolve_image_uploads(self, info, **kwargs):
         return ImageUpload.objects.filter(**kwargs)
 
